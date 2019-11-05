@@ -1,27 +1,45 @@
 body{
-	background-color: #0E2577;
+	background-color: #ffffff;
 }
-.mainpage{
+.mainpage{ 
 	position: absolute; 
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-/*	background-color: #0E2577;*/
-	color: #FFFFFF;
+	color: #0E2577;
 	text-align: center;
+	font-family: 'Roboto', sans-serif;
 }
-.mainlist p{
-	font-size: 350%;
+#logo {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	background-color: #0E2577;
+}
+#logo p {
+	font-size: 50pt;
+	color: #ffffff;
+	height: 300px;
+	line-height: 300px;
+}
+#title {
+	font-size: 70pt;
+}
+.mainlist {
+	margin-top: 250px;
+}
+.mainlist p {
+	font-size: 50pt;
 	margin-top: 50px;
 }
-.mainlist a{
+.mainlist a {
 	text-decoration: none;
 	color: inherit;
 	margin: 50px;
 	border-bottom: 3px solid white;
 }
 
-.version{
+.version {
 	margin-top: 300px;
 	font-size: 25px;
 }
