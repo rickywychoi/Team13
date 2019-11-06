@@ -8,18 +8,35 @@
    position: fixed;
    width: 300px;
    height: 100%;
-   background: #151719;
+   background: #585858;
    left: -300px;
    transition: all 500ms linear;
+   z-index: 99;
   }
   #sidebar.active{
    left:0px;
   }
+
+  #sidebar #userSection {
+    height: 150px;
+  }
+
+  #sidebar #userName {
+    color: white;
+    font-size: 20px;
+    height: 150px;
+    line-height: 150px;
+  }
+
   #sidebar ul li{
    color: white;
    list-style: none;
    padding: 15px 10px;
-   border-bottom: 1px solid white;
+   /* border-bottom: 1px solid white; */
+  }
+
+  #sidebar ul li a{
+    color: #FFFFFF;
   }
   #sidebar .toggle-btn{
    position: absolute;
@@ -33,4 +50,8 @@
    background: #151719;
    margin: 5px 0px;
 
+  }
+
+  .disappear{
+    display: none;
   }

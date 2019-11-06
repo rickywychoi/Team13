@@ -2,83 +2,87 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Home</title>
-    <!-- <link rel="stylesheet" type="text/css" href="../style/mainHomeStyle.css" /> -->
-    <style>
-        body {
-            margin: 0;
-            background-color: rgb(189, 204, 255);
-        }
 
-        #header {
-            background-color: #ffffff;
-            width: 100%;
-            height: 80px;
-            z-index: 20001;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../style/sidebarStyle.css">
+  <script type="text/javascript" src=./sidebar_script.js></script>
+  <title>Main Home</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(189, 204, 255);
+    }
 
-        #iconsWrapper {
-            padding: 0 10px;
-            text-align: center;
-        }
+    #header {
+      background-color: #ffffff;
+      width: 100%;
+      height: 80px;
+      z-index: 50;
+      top: 0;
+      position: fixed;
+    }
 
-        .icons {
-            width: 40px;
-            height: auto;
-            margin: 20px 10px;
-        }
+    #iconsWrapper {
+      padding: 0 10px;
+      text-align: center;
+    }
 
-        #menuIcon {
-            float: left;
-        }
+    .icons {
+      width: 40px;
+      height: auto;
+      margin: 20px 10px;
+    }
 
-        #searchIcon {
-            float: right;
-        }
+    #menuIcon {
+      float: left;
+    }
 
-        #messageIcon {
-            float: right;
-        }
+    #searchIcon {
+      float: right;
+    }
 
-        #logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #0E2577;
-            display: inline-block;
-            position: absolute;
-            left: 155px;
-            margin: 20px
-        }
+    #messageIcon {
+      float: right;
+    }
 
-        #main {
-            background-color: rgb(189, 204, 255);
-            height: 100%;
-        }
+    #logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #0E2577;
+      display: inline-block;
+      /* position: absolute; */
+      left: 50%;
+      transform: translate(150%);
+      margin: 20px
+    }
 
-        .posts {
-            width: 330px;
-            height: 250px;
-            background-color: #ffffff;
-            margin: 20px auto;
-            padding-top: 14px;
-        }
+    #main {
+      background-color: rgb(189, 204, 255);
+      height: 100%;
+    }
 
-        .postsImage {
-            width: 300px;
-            height: 170px;
-            border: 1px solid black;
-            margin: 0px auto;
-        }
+    .posts {
+      width: 330px;
+      height: 250px;
+      background-color: #ffffff;
+      margin: 20px auto;
+      padding-top: 14px;
+    }
 
-        /** (mobile) For 480px or less **/
-        @media screen and (max-width: 480px) {}
+    .postsImage {
+      width: 300px;
+      height: 170px;
+      border: 1px solid black;
+      margin: 0px auto;
+    }
 
-    </style>
+    /** (mobile) For 480px or less **/
+    @media screen and (max-width: 480px) {}
+  </style>
 
-    <!-- Include Firebase related things -->
+  <!-- Include Firebase related things -->
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
@@ -109,64 +113,85 @@
 </head>
 
 <body>
-    <div id="content">
-        <div id="header">
-            <div id="iconsWrapper">
-                <a href="#"><img src="../assets/icons/menu.png" alt="menu icon" class="icons" id="menuIcon" /></a>
-                <a href="#">
-                    <div id="logo"></div>
-                </a>
-                <a href="#"><img src="../assets/icons/envelope.png" alt="message icon" class="icons" id="messageIcon" /></a>
-                <a href="#"><img src="../assets/icons/search.png" alt="search icon" class="icons" id="searchIcon" /></a>
-            </div>
+  <div id="content">
+    <div id="header">
+      <div id="iconsWrapper">
+        <div id="sidebar">
+          <div class="toggle-btn" onclick="toggleSidebar()">
+            <a>
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+          <div id="userSection">
+            <p id="userName">Please Log In</p>
+          </div>
+          <ul>
+            <li><a href="#">Explore Posts</a></li>
+            <li><a href="#">Create a Post</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#" id="sidebarLogIn">Log In</a></li>
+            <li><a href="#" id="sidebarLogOut">Log Out</a></li>
+            <li><a href="#">Account Setting</a></li>
+          </ul>
         </div>
-        <div id="main">
-          <p id="userName"></p>
-            <div class="posts">
-                <div class="postsImage">
-                </div>
-                <p>asdfasdf</p>
-            </div>
-            <div class="posts">
-                <div class="postsImage">
-                </div>
-                <p>asdfasdf</p>
-            </div>
-            <div class="posts">
-                <div class="postsImage">
-                </div>
-                <p>asdfasdf</p>
-            </div>
-        </div>
+        <a href="#">
+          <div id="logo"></div>
+        </a>
+        <a href="#"><img src="../assets/icons/envelope.png" alt="message icon" class="icons" id="messageIcon" /></a>
+        <a href="#"><img src="../assets/icons/search.png" alt="search icon" class="icons" id="searchIcon" /></a>
+      </div>
     </div>
+    <div id="main">
+      <div class="posts">
+        <div class="postsImage">
+        </div>
+        <p>asdfasdf</p>
+      </div>
+      <div class="posts">
+        <div class="postsImage">
+        </div>
+        <p>asdfasdf</p>
+      </div>
+      <div class="posts">
+        <div class="postsImage">
+        </div>
+        <p>asdfasdf</p>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        console.log("[mainHome]");
+  <script>
+      console.log("[mainHome]");
 
-        var user = firebase.auth().currentUser;
-        var name, email, photoUrl, uid, emailVerified;
+      var user = firebase.auth().currentUser;
+      var name, email, photoUrl, uid, emailVerified;
 
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                // User is signed in.
-                if (user != null) {
-                    name = user.displayName;
-                    email = user.email;
-                    photoUrl = user.photoURL;
-                    emailVerified = user.emailVerified;
-                    uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
-                    // this value to authenticate with your backend server, if
-                    // you have one. Use User.getToken() instead.
-                }
+      firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+              // User is signed in.
+              if (user != null) {
+                  name = user.displayName;
+                  email = user.email;
+                  photoUrl = user.photoURL;
+                  emailVerified = user.emailVerified;
+                  uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+                  // this value to authenticate with your backend server, if
+                  // you have one. Use User.getToken() instead.
+              }
 
-                console.log(name);
-                document.getElementById("userName").innerHTML = name;
-            } else {
-                // No user is signed in.
-            }
-        });
+              console.log(name);
+              document.getElementById("userName").innerHTML = "Hello, " + name;
+              document.getElementById("sidebarLogIn").style.display = "none";
 
-    </script>
+          } else {
+              // No user is signed in.
+              document.getElementById("sidebarLogOut").style.display = "none";
+          }
+      });
+
+  </script>
 </body>
 
 </html>
