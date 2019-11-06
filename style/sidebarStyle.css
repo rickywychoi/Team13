@@ -8,7 +8,7 @@
    position: fixed;
    width: 300px;
    height: 100%;
-   background: #151719;
+   background: #585858;
    left: -300px;
    transition: all 500ms linear;
   }
@@ -20,6 +20,10 @@
    list-style: none;
    padding: 15px 10px;
    border-bottom: 1px solid white;
+  }
+
+  #sidebar ul li a{
+    color: #FFFFFF;
   }
   #sidebar .toggle-btn{
    position: absolute;
