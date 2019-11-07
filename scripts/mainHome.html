@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../style/sidebarStyle.css">
@@ -81,6 +82,35 @@
     /** (mobile) For 480px or less **/
     @media screen and (max-width: 480px) {}
   </style>
+
+  <!-- Include Firebase related things -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAv-mg6O3jfsV6MBeJdXCB4zqevWrmRkVc",
+            authDomain: "bcit-buy-n-sell.firebaseapp.com",
+            databaseURL: "https://bcit-buy-n-sell.firebaseio.com",
+            projectId: "bcit-buy-n-sell",
+            storageBucket: "bcit-buy-n-sell.appspot.com",
+            messagingSenderId: "796480005879",
+            appId: "1:796480005879:web:bb2942893b85e9949555f2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+    </script>
 </head>
 
 <body>
@@ -95,11 +125,15 @@
               <span></span>
             </a>
           </div>
+          <div id="userSection">
+            <p id="userName">Please Log In</p>
+          </div>
           <ul>
             <li><a href="#">Explore Posts</a></li>
             <li><a href="#">Create a Post</a></li>
             <li><a href="#">My Posts</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="#" id="sidebarLogIn">Log In</a></li>
+            <li><a href="#" id="sidebarLogOut">Log Out</a></li>
             <li><a href="#">Account Setting</a></li>
           </ul>
         </div>
@@ -114,20 +148,51 @@
       <div class="posts">
         <div class="postsImage">
         </div>
-        <p>asdfasdf</p>
+        <p></p>
       </div>
       <div class="posts">
         <div class="postsImage">
         </div>
-        <p>asdfasdf</p>
+        <p></p>
       </div>
       <div class="posts">
         <div class="postsImage">
         </div>
-        <p>asdfasdf</p>
+        <p></p>
       </div>
     </div>
   </div>
+
+  <script>
+      console.log("[mainHome]");
+
+      var user = firebase.auth().currentUser;
+      var name, email, photoUrl, uid, emailVerified;
+
+      firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+              // User is signed in.
+              if (user != null) {
+                  name = user.displayName;
+                  email = user.email;
+                  photoUrl = user.photoURL;
+                  emailVerified = user.emailVerified;
+                  uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+                  // this value to authenticate with your backend server, if
+                  // you have one. Use User.getToken() instead.
+              }
+
+              console.log(name);
+              document.getElementById("userName").innerHTML = "Hello, " + name;
+              document.getElementById("sidebarLogIn").style.display = "none";
+
+          } else {
+              // No user is signed in.
+              document.getElementById("sidebarLogOut").style.display = "none";
+          }
+      });
+
+  </script>
 </body>
 
 </html>
