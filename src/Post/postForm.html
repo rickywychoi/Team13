@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Posting page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../style/Sidebar/sidebarStyle.css">
+  <link rel="stylesheet" type="text/css" href="../../style/Post/postFormStyle.css">
+
+  <!-- firbase stuff -->
+  <script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"> </script>
+  <script type="text/javascript" src="../../scripts/Conditionbar/conditionBarScript.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAv-mg6O3jfsV6MBeJdXCB4zqevWrmRkVc",
+      authDomain: "bcit-buy-n-sell.firebaseapp.com",
+      databaseURL: "https://bcit-buy-n-sell.firebaseio.com",
+      projectId: "bcit-buy-n-sell",
+      storageBucket: "bcit-buy-n-sell.appspot.com",
+      messagingSenderId: "796480005879",
+      appId: "1:796480005879:web:bb2942893b85e9949555f2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+   var db = firebase.firestore();
+  </script>
+</head>
+
+<body>
+  <header id="header">
+
+
+  </header>
+
+  <div class="alert">Your post has been uploaded</div>
+
+  <div class="postForm">
+    <form id="postingForm">
+      <input type="text" name="title" placeholder="Enter the title" class="title" id="title">
+      <textarea name="describe" class="description" row="15" placeholder="Describe about your product"
+        id="description"></textarea>
+
+      <div class="conditionBar">
+        <input id="condition" type="range" class="range" value="0" min='0.0' max='100.0' name=""
+          mousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)">
+        <p id="rangeValue">0</p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script type="text/javascript" src="../../scripts/Post/postForm.js"></script>
+</body>
+
+</html>
