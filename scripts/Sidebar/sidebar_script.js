@@ -1,4 +1,4 @@
-function toggleSidebar(){
+function toggleSidebar() {
   var logo = document.getElementById("logo");
   var search = document.getElementById("searchIcon");
   var message = document.getElementById("messageIcon");
@@ -10,4 +10,4 @@ function toggleSidebar(){
   // document.getElementById("messageIcon").style.display = "none";
   // document.getElementById("searchIcon").style.display = "none";
   // document.getElementById("logo").style.display = "none";
-  }
+}

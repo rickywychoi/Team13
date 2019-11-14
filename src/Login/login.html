@@ -18,21 +18,8 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAv-mg6O3jfsV6MBeJdXCB4zqevWrmRkVc",
-            authDomain: "bcit-buy-n-sell.firebaseapp.com",
-            databaseURL: "https://bcit-buy-n-sell.firebaseio.com",
-            projectId: "bcit-buy-n-sell",
-            storageBucket: "bcit-buy-n-sell.appspot.com",
-            messagingSenderId: "796480005879",
-            appId: "1:796480005879:web:bb2942893b85e9949555f2"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-    </script>
+    <!-- Our app's firebase config -->
+    <script type="text/javascript" src="../../scripts/firebaseConfig.js"></script>
 </head>
 
 <body>
@@ -60,7 +47,7 @@
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: './mainHome.html',
+            signInSuccessUrl: '../MainHome/mainHome.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 // firebase.auth.GoogleAuthProvider.PROVIDER_ID,

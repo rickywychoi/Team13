@@ -5,18 +5,17 @@
   <title>Posting page</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="../style/sidebarStyle.css">
-  <link rel="stylesheet" type="text/css" href="../style/mainHomeStyle.css">
-  <link rel="stylesheet" type="text/css" href="../style/postFormStyle.css">
-  <script type="text/javascript" src="./sidebar_script.js"> </script>
-  <title>Main Home</title>
-  <script type="text/javascript" src="./conditionBarScript.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../style/Sidebar/sidebarStyle.css">
+  <link rel="stylesheet" type="text/css" href="../../style/Post/postFormStyle.css">
+
+  <!-- firbase stuff -->
+  <script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"> </script>
+  <script type="text/javascript" src="../../scripts/Conditionbar/conditionBarScript.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
   <script>
     var firebaseConfig = {
@@ -36,35 +35,10 @@
 </head>
 
 <body>
-  <div id="header">
-    <div id="iconsWrapper">
-      <div id="sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-          <a>
-            <span></span>
-            <span></span>
-            <span></span>
-          </a>
-        </div>
-        <div id="userSection">
-          <p id="userName">Please Log In</p>
-        </div>
-        <ul>
-          <li><a href="#">Explore Posts</a></li>
-          <li><a href="#">Create a Post</a></li>
-          <li><a href="#">My Posts</a></li>
-          <li><a href="#" id="sidebarLogIn">Log In</a></li>
-          <li><a href="#" id="sidebarLogOut">Log Out</a></li>
-          <li><a href="#">Account Setting</a></li>
-        </ul>
-      </div>
-      <a href="#">
-        <div id="logo"></div>
-      </a>
-      <a href="#"><img src="../assets/icons/envelope.png" alt="message icon" class="icons" id="messageIcon" /></a>
-      <a href="#"><img src="../assets/icons/search.png" alt="search icon" class="icons" id="searchIcon" /></a>
-    </div>
-  </div>
+  <header id="header">
+
+
+  </header>
 
   <div class="alert">Your post has been uploaded</div>
 
@@ -82,7 +56,7 @@
       <button type="submit">Submit</button>
     </form>
   </div>
-  <script type="text/javascript" src="./postForm.js"></script>
+  <script type="text/javascript" src="../../scripts/Post/postForm.js"></script>
 </body>
 
 </html>

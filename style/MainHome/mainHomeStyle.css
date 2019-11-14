@@ -1,9 +1,14 @@
+/****************************************************
+ * Following part is shared part as header and background
+ ****************************************************/
 body {
   margin: 0;
   background-color: rgb(189, 204, 255);
 }
 
 #header {
+  position: fixed;
+  top: 0;
   background-color: #ffffff;
   width: 100%;
   height: 80px;
@@ -47,7 +52,11 @@ body {
 #main {
   background-color: rgb(189, 204, 255);
   height: 100%;
+  margin-top: 100px;
 }
+/****************************************************
+ * Above part is shared part as header and background
+ ****************************************************/
 
 .posts {
   width: 330px;
