@@ -7,6 +7,7 @@
   }
   
   #header {
+    position: fixed;
     top: 0;
     background-color: #ffffff;
     width: 100%;
@@ -15,7 +16,7 @@
   }
 
 .postForm{
-    margin top: 5px;
+    margin-top: 80px;
 }
 .title{
     box-sizing: border-box;
