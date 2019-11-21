@@ -1,0 +1,47 @@
+.head{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(150, 209, 255);
+}
+
+.cancel a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    margin: 5px;
+    float:left;
+}
+
+.done a{
+    text-decoration: none;
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    margin: 5px;
+}
+.info-title{
+    color: rgb(150, 209, 255);
+    font-size: 15px;
+}
+
+.fields ul{
+    list-style: none;
+    width: 100%;
+}
+
+.fields ul li{
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+
+.profile{
+    border-radius : 50%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(50%);
+}

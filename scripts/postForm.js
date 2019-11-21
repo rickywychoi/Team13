@@ -12,9 +12,8 @@ function submitForm(e) {
 
     db.collection('posts').add({
         title: postTitle,
-        description: postDescription,
+        contents: postDescription,
         condition: postCondition
-
     })
 
     //alert

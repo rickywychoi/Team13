@@ -6,18 +6,20 @@ document.getElementById('postingForm').addEventListener('submit', submitForm);
 function submitForm(e) {
     e.preventDefault();
 
+    //get value from inputs in the 'postingFrom'
     var postTitle = document.getElementById('title').value;
     var postDescription = document.getElementById('description').value;
     var postCondition = document.getElementById('condition').value / 10;
 
+    //place input values in Firebase 
     db.collection('posts').add({
-        title: postTitle,
-        description: postDescription,
+        postTitle: postTitle,
+        content: postDescription,
         condition: postCondition
 
     })
 
-    //alert
+    //alert to show submission succeeding
     document.querySelector('.alert').style.display = "block";
 
     // Hide alert after 3 seconds
