@@ -23,8 +23,31 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("userName").innerHTML = "Hello, " + name;
     document.getElementById("sidebarLogIn").style.display = "none";
 
+    function parseURLParams(url) {
+      var queryStart = url.indexOf("?") + 1,
+        queryEnd = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        params = {},
+        i, n, v, nv;
+
+      if (query === url || query === "") return;
+
+      for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=", 2);
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!params.hasOwnProperty(n)) params[n] = [];
+        params[n].push(nv.length === 2 ? v : null);
+      }
+      return params;
+    }
+
+    let postId = parseURLParams(window.location.href).postId[0];
+
     // for contents
-    db.collection('posts').doc('3').onSnapshot(snap => {
+    db.collection('posts').doc(postId).get().then(snap => {
       console.log(snap.id);
       console.log(snap.data());
       let post = {
@@ -41,26 +64,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('postContent').innerHTML = post.contents;
       document.getElementById('condition').innerHTML = post.conditionStatus;
     })
-
-    // db.collection('posts').once('value', gotUserData());
-
-    // function gotUserData(snapshot){
-    //   snapshot.forEach(userSnapshot => {
-    //     var k = userSnapshot.key;
-    //     var id = userSnapshot.val().AssignedID;
-    //     var name = userSnapshot.val().Name;
-    //     ref.child("teams").child(id).once("value", teamsSnapshot => {
-    //       teamsSnapshot.forEach(teamSnapshot => {
-    //         var teamKey = teamSnapshot.key;
-    //         teamSnapshot.forEach(teamProp => {
-    //           var prop = teamProp.key;
-    //           var val = teamProp.val();
-    //           console.log(k+" "+name+" "+id+": "+teamKey+", "+prop+"="+val);
-    //         });
-    //       });
-    //     });
-    //   })
-    // }
 
   } else {
     // No user is signed in.

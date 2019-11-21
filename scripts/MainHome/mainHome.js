@@ -6,8 +6,6 @@ var name, email, photoUrl, uid, emailVerified;
 // for firebase database
 const db = firebase.firestore();
 
-let postsRef = db.collection('posts');
-
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -27,7 +25,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("sidebarLogIn").style.display = "none";
 
     // retrieving data from each post
-    postsRef.get()
+    let postsRef = db.collection('posts');
+    postsRef.orderBy('createdDate', 'desc').get()  // get posts in descending order
     .then(snap => {
       console.log("MainHome.js")
       snap.forEach(doc => {
@@ -35,6 +34,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         // fields of each post documents
         let post = {
+          postId: doc.id,
           conditionStatus: doc.data().conditionStatus,
           contents: doc.data().contents,
           // createdDate: null || undefined ? '' : doc.data().createdDate.toDate(),
@@ -51,7 +51,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         titlePara.addClass('postTitle');
         let postLink = $('<a></a>');
         postLink.addClass('toPost');
-        postLink.attr('href', '#');
+        postLink.attr('href', '../Post/post.html?postId=' + post.postId);
         let postImage = $('<div>image</div>');
         postImage.addClass('postImage');
         let details = $('<div></div>');
