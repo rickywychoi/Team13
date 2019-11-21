@@ -57,3 +57,33 @@ body {
 /****************************************************
  * Above part is shared part as header and background
  ****************************************************/
+
+#postMain {
+  width: 345px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+#postTitle {
+  margin-left: 10px;
+}
+
+.postId {
+  display: flex;
+}
+
+#postTime {
+  margin-left: auto;
+}
+
+.postImage {
+  width: 335px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.conditionBar { 
+  text-align: center;
+}
+

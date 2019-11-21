@@ -7,6 +7,22 @@
 		<link rel="stylesheet" type="text/css" href="../../style/Sidebar/sidebarStyle.css">
 		<link rel="stylesheet" type="text/css" href="../../style/Post/post.css">
 		<script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"></script>
+
+		<!-- Include Firebase related things -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <!-- Our app's firebase config -->
+    <script type="text/javascript" src="../../scripts/firebaseConfig.js"></script>
 	</head>
 	<body>
 		<div id="content">
@@ -29,7 +45,7 @@
 							<li><a href="#">My Posts</a></li>
 							<li><a href="#" id="sidebarLogIn">Log In</a></li>
 							<li><a href="#" id="sidebarLogOut">Log Out</a></li>
-							<li><a href="/scripts/userProfile.html">Account Setting</a></li>
+							<li><a href="#">Account Settings</a></li>
 						</ul>
 					</div>
 					<a href="#">
@@ -40,7 +56,26 @@
 				</div>
 			</div>
 			<div id="main">
-				
+				<div id="postMain">
+					<h1 id="postTitle">Title</h1>
+					<div class="postId">
+						<div id="user">
+							<p>userName</p>
+						</div>
+						<div id="postTime">
+							<p>posted time</p>
+						</div>
+					</div>
+					<img src="https://dummyimage.com/335x250/787fb3/000000" alt="postImage" class="postImage"/>
+					<div id="postDetail">
+						<p id="postContent">price negotiable meet me at SW1</p>
+						<div class="conditionBar">
+							<h3>Condition</h3>
+							<p id="condition">condition bar</p>
+						</div>
+					</div>
+					<button>DM</button>
+				</div>
 			</div>
 		</div>
 

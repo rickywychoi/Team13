@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account Setting</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../style/UserProfile/UserProfileStyle.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"> </script>
+    <script type="text/javascript" src="../../scripts/Conditionbar/conditionBarScript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <span class="cancel"><a href="#">Cancel</a></span>
+        <span class="done"><a href="#">Done</a></span>
+        <img src="../../assets/icons/profile.png" class="profile">
+    </div>
+    <div class="fields">
+        <ul>
+            <li class="info-title">Your information</li>
+            <li class="info">Name<span class="userName" id="popup" type="popup"></span>></li>
+            <li class="info">Email<span class="userEmail" id="popup" type="popup"></span></li>
+        </ul>
+    </div>
+    <script src="../../scripts/firebaseConfig.js"></script>
+    <script src="../../scripts/UserProfile/UserProfileScript.js"></script>
+
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div id="close" onclick="closing()">+</div>
+            <p class="update">Update Your Profile</p>
+
+            <form action="">
+                <input type="text" name="name" placeholder="Enter the updating name" class="input" id="newName">
+                <br />
+                <input type="email" name="email" placeholder="Enter the updating email" class="input" id="newEmail">
+                <br />
+                <button type="submit" class="input" id="button" onclick="updating()">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

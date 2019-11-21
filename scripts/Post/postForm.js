@@ -14,7 +14,7 @@ function submitForm(e) {
     //place input values in Firebase 
     db.collection('posts').add({
         postTitle: postTitle,
-        content: postDescription,
+        contents: postDescription,
         condition: postCondition
 
     })
