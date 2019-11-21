@@ -23,6 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("userName").innerHTML = "Hello, " + name;
     document.getElementById("sidebarLogIn").style.display = "none";
 
+    // for passing post id into url query
     function parseURLParams(url) {
       var queryStart = url.indexOf("?") + 1,
         queryEnd = url.indexOf("#") + 1 || url.length + 1,
@@ -58,7 +59,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         postTitle: snap.data().postTitle,
         postedBy: snap.data().postedBy,
       }
-      document.getElementById('postTitle').firstChild.nodeValue = post.postTitle;
+      document.getElementById('postTitle').innerHTML = post.postTitle;
       document.getElementById('user').innerHTML = post.postedBy;
       document.getElementById('postTime').innerHTML = post.createdDate;
       document.getElementById('postContent').innerHTML = post.contents;

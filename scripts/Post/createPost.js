@@ -49,6 +49,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     }
 
+    // function goBack() {
+    //   return document.referrer;
+    // }
+
   } else {
     // No user is signed in.
     document.getElementById("sidebarLogOut").style.display = "none";
