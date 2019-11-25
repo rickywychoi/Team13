@@ -54,14 +54,14 @@ firebase.auth().onAuthStateChanged(function (user) {
       let post = {
         conditionStatus: snap.data().conditionStatus,
         contents: snap.data().contents,
-        createdDate: snap.data().createdDate.toDate(),
+        createdDate: snap.data().createdDate.toDate().toString().substring(0, 10),
         image: snap.data().image,
         postTitle: snap.data().postTitle,
         postedBy: snap.data().postedBy,
       }
       document.getElementById('postTitle').innerHTML = post.postTitle;
       document.getElementById('user').innerHTML = post.postedBy;
-      document.getElementById('postTime').innerHTML = post.createdDate;
+      document.getElementById('postTime').innerHTML = "Posted on: " + post.createdDate;
       document.getElementById('postContent').innerHTML = post.contents;
       document.getElementById('condition').innerHTML = post.conditionStatus;
     })

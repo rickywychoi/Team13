@@ -49,9 +49,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     }
 
-    // function goBack() {
-    //   return document.referrer;
-    // }
+
+    $("#cancelButton").click(() => {
+      window.history.back();
+    })
 
   } else {
     // No user is signed in.
