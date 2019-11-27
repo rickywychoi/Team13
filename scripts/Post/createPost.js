@@ -49,7 +49,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     }
 
-
     $("#cancelButton").click(() => {
       window.history.back();
     })
