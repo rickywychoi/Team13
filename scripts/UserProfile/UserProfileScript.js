@@ -63,6 +63,8 @@ function updating(){
     //     console.log(user.displayName);
     // }
     // )
+
+    console.log("asdf" + document.referrer);
     console.log(newname);
     console.log(newEmail);
 }

@@ -23,19 +23,17 @@
 
 <body>
     <div class="head">
-        <span class="cancel"><a href="#">Cancel</a></span>
+        <span class="cancel"><a href="../MainHome/mainHome.html">Cancel</a></span>
         <span class="done"><a href="#">Done</a></span>
         <img src="../../assets/icons/profile.png" class="profile">
     </div>
     <div class="fields">
         <ul>
             <li class="info-title">Your information</li>
-            <li class="info">Name<span class="userName" id="popup" type="popup"></span>></li>
+            <li class="info">Name<span class="userName" id="popup" type="popup"></span></li>
             <li class="info">Email<span class="userEmail" id="popup" type="popup"></span></li>
         </ul>
     </div>
-    <script src="../../scripts/firebaseConfig.js"></script>
-    <script src="../../scripts/UserProfile/UserProfileScript.js"></script>
 
     <div class="bg-modal">
         <div class="modal-content">
@@ -51,5 +49,8 @@
             </form>
         </div>
     </div>
+
+    <script src="../../scripts/firebaseConfig.js"></script>
+    <script src="../../scripts/UserProfile/UserProfileScript.js"></script>
 </body>
 </html>

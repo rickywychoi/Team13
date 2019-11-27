@@ -72,14 +72,20 @@ body {
 }
 
 .postId {
-  display: flex;
+  /* display: flex; */
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
+#user {
+  margin-bottom: 10px;
+}
+
 #postTime {
-  margin-left: auto;
+  /* margin-left: auto; */
+  float: right;
+  margin-bottom: 10px;
 }
 
 .postImage {
