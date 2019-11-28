@@ -31,6 +31,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postedBy = user.uid;
 
       //upload image
+
       var file = document.getElementById('image').files[0];
       // var storageRef = firebase.storage().ref('product/' + image.name);
       // storageRef.put(image);
@@ -51,6 +52,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         });
       })
 
+
       // var uploadTask = storageRef.put(image);
       // uploadTask.on('state_changed', function(snapshot){
 
@@ -59,6 +61,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       // storageRef.put(image).getDownloadURL().then(function(url){
       //   console.log(url);
       // })
+
       // db.collection('posts').add({
       //   postTitle: postTitle,
       //   contents: postDescription,
@@ -72,7 +75,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       db.collection('users').doc(user.uid).get().then(snap => {
         // console.log(snap.data());
         var post = {
-          numOfPost: snap.data().numberOfPost
+          // numOfPost: snap.data().numberOfPost
         }
         db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
           postTitle: postTitle,
@@ -94,7 +97,8 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('postingForm').reset();
     }
 
-    $("#cancelButton").click(() => {
+    $("#cancelButton").click((e) => {
+      e.preventDefault();
       window.history.back();
     })
 
