@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postDescription = document.getElementById('description').value;
       var postCondition = document.getElementById('condition').value / 10;
       var postedDate = firebase.firestore.Timestamp.fromDate(new Date())
-      var postedBy = user.uid;
+      var postedBy = user.displayName;
 
       //upload image
 

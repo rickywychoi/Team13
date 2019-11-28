@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     // retrieving data from each post
     let postsRef = db.collection('posts');
-    postsRef.where("postedBy", "==", uid).orderBy('createdDate', 'desc').get() // get posts in descending order
+    postsRef.where("postedBy", "==", name).orderBy('createdDate', 'desc').get() // get posts in descending order
       .then(snap => {
         console.log("MainHome.js")
         snap.forEach(doc => {
