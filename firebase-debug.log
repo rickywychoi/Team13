@@ -1,0 +1,25 @@
+[debug] [2019-11-28T19:45:39.320Z] ----------------------------------------------------------------------
+[debug] [2019-11-28T19:45:39.321Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-11-28T19:45:39.322Z] CLI Version:   7.8.1
+[debug] [2019-11-28T19:45:39.322Z] Platform:      darwin
+[debug] [2019-11-28T19:45:39.322Z] Node Version:  v12.13.0
+[debug] [2019-11-28T19:45:39.322Z] Time:          Thu Nov 28 2019 11:45:39 GMT-0800 (Pacific Standard Time)
+[debug] [2019-11-28T19:45:39.322Z] ----------------------------------------------------------------------
+[debug] [2019-11-28T19:45:39.322Z] 
+[debug] [2019-11-28T19:45:39.327Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-28T19:45:39.327Z] > authorizing via signed-in user
+[debug] [2019-11-28T19:45:39.327Z] [iam] checking project bcit-buy-n-sell for permissions ["firebase.projects.get"]
+[debug] [2019-11-28T19:45:39.328Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bcit-buy-n-sell:testIamPermissions  
+
+[debug] [2019-11-28T19:45:39.419Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-28T19:45:39.420Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/bcit-buy-n-sell  
+ 
+[debug] [2019-11-28T19:45:39.553Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/sungminjin/Desktop/Team13'...
+[info] 
+[debug] [2019-11-28T19:45:39.555Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/bcit-buy-n-sell/webApps/-/config  
+ 
+[debug] [2019-11-28T19:45:39.848Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from:  .
+[info] ✔  hosting: Local server: http://localhost:5000
