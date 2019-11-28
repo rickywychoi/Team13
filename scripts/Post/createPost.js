@@ -32,8 +32,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       //upload image
       var image = document.getElementById('image').files[0];
-      var storageRef = firebase.storage().ref('product/' + image.name);
-      storageRef.put(image);
+      // var storageRef = firebase.storage().ref('product/' + image.name);
+      // storageRef.put(image);
+
+      console.log(uid);
 
       // var uploadTask = storageRef.put(image);
       // uploadTask.on('state_changed', function(snapshot){
@@ -50,13 +52,13 @@ firebase.auth().onAuthStateChanged(function (user) {
         createdDate: postedDate,
         image: "empty image",
         postedBy: postedBy,
-        url: donwloadURL,
+        // url: donwloadURL,
       })
 
       db.collection('users').doc(user.uid).get().then(snap => {
         console.log(snap.data());
         var post = {
-          numOfPost: snap.data().numberOfPost
+          // numOfPost: snap.data().numberOfPost
         }
         db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
           postTitle: postTitle,
@@ -77,7 +79,8 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('postingForm').reset();
     }
 
-    $("#cancelButton").click(() => {
+    $("#cancelButton").click((e) => {
+      e.preventDefault();
       window.history.back();
     })
 
