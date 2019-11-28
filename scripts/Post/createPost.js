@@ -1,3 +1,5 @@
+
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -28,6 +30,19 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postedDate = firebase.firestore.Timestamp.fromDate(new Date())
       var postedBy = user.uid;
 
+      //upload image
+      var image = document.getElementById('image').files[0];
+      var storageRef = firebase.storage().ref('product/' + image.name);
+      storageRef.put(image);
+
+      // var uploadTask = storageRef.put(image);
+      // uploadTask.on('state_changed', function(snapshot){
+
+      // })
+      // var donwloadURL = uploadTask.snapshot.donwloadURL;
+      // storageRef.put(image).getDownloadURL().then(function(url){
+      //   console.log(url);
+      // })
       db.collection('posts').add({
         postTitle: postTitle,
         contents: postDescription,
@@ -35,18 +50,31 @@ firebase.auth().onAuthStateChanged(function (user) {
         createdDate: postedDate,
         image: "empty image",
         postedBy: postedBy,
+        url: donwloadURL,
       })
 
-      //alert
-      document.querySelector('.alert').style.display = "block";
+      db.collection('users').doc(user.uid).get().then(snap => {
+        console.log(snap.data());
+        var post = {
+          numOfPost: snap.data().numberOfPost
+        }
+        db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
+          postTitle: postTitle,
+          contents: postDescription,
+          conditionStatus: postCondition,
+          createdDate: postedDate,
+          image: "empty image",
+          postedBy: postedBy,
+        })
 
-      // Hide alert after 3 seconds
-      setTimeout(function () {
-        document.querySelector('.alert').style.display = 'none';
-      }, 3000);
+        db.collection('users').doc(user.uid).update({
+          numberOfPost: post.numOfPost + 1
+        })
+      }).then(function(){
+        window.location.href = "../MainHome/mainHome.html";
+      })
 
       document.getElementById('postingForm').reset();
-
     }
 
     $("#cancelButton").click(() => {

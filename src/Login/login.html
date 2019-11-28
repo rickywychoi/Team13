@@ -62,18 +62,19 @@
             // Privacy policy url.
             privacyPolicyUrl: 'main.html'
         };
-        var user = firebase.auth().currentUser;
-        var name, email, photoUrl, uid, emailVerified;
-        var db = firebase.firestore();
-        firebase.auth().onAuthStateChanged(function (user){
-            if(user){
-                if(user != null){
+        firebase.auth().onAuthStateChanged(function (user) {
+            var user = firebase.auth().currentUser;
+            var name, email, photoUrl, uid, emailVerified;
+            var db = firebase.firestore();
+            if (user) {
+                if (user != null) {
                     name = user.displayName;
                     email = user.email;
                     photoUrl = user.photoURL;
                     emailVerified = user.emailVerified;
                     uid = user.uid;
                 }
+
             //     db.collection('users').doc(user.uid).set({
             //     name: name,
             //     email : email,
@@ -84,8 +85,23 @@
         })
 
         // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig)
+        ui.start('#firebaseui-auth-container', uiConfig).then(function () {
+            firebase.auth().onAuthStateChanged(function (user) {
+                var user = firebase.auth().currentUser;
+                var name, email, photoUrl, uid, emailVerified;
+                var db = firebase.firestore();
+                if (user) {
+                    if (user != null) {
+                        name = user.displayName;
+                        email = user.email;
+                        photoUrl = user.photoURL;
+                        emailVerified = user.emailVerified;
+                        uid = user.uid;
+                    }
+                }
 
+            })
+        })
     </script>
 </body>
 

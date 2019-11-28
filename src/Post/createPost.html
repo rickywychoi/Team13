@@ -17,6 +17,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-storage.js"></script>
   <script>
     var firebaseConfig = {
       apiKey: "AIzaSyAv-mg6O3jfsV6MBeJdXCB4zqevWrmRkVc",
@@ -30,7 +31,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-   var db = firebase.firestore();
+    var db = firebase.firestore();
   </script>
 </head>
 
@@ -45,18 +46,17 @@
   <div class="postForm">
     <form id="postingForm">
       <input type="text" name="title" placeholder="Enter the title" class="title" id="title">
+      <input type="file" name="image" class="image" id="image" value="upload">
       <textarea name="describe" class="description" row="15" placeholder="Describe about your product"
         id="description"></textarea>
-
-      <div class="conditionBar">
+      <div class="conditionBar" id="con">
         <input id="condition" type="range" class="range" value="0" min='0.0' max='100.0' name=""
           mousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)">
         <p id="rangeValue">0</p>
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" id="submit">Submit</button>
     </form>
   </div>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="../../scripts/Post/createPost.js"></script>
 </body>
