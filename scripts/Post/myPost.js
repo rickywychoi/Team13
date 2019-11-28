@@ -45,7 +45,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
             image: doc.data().image,
             postTitle: doc.data().postTitle,
-            postedBy: postedBy.length > 15 ? postedBy.substring(0, 16).concat("...") : postedBy
+            postedBy: postedBy.length > 15 ? postedBy.substring(0, 16).concat("...") : postedBy,
+            url: doc.data().url,
           }
 
           console.log(doc.data().createdDate.toDate().toString().substring(0, 10));
@@ -60,8 +61,10 @@ firebase.auth().onAuthStateChanged(function (user) {
           let postLink = $('<a></a>');
           postLink.addClass('toPost');
           postLink.attr('href', '../Post/post.html?postId=' + post.postId);
-          let postImage = $('<div>image</div>');
-          postImage.addClass('postImage');
+          let postImageDiv = $('<div></div>');
+          postImageDiv.addClass('postImage');
+          let postImage = $('<img/>');
+          postImage.attr("src", post.url);
           let details = $('<div></div>');
           details.addClass('postDetail');
           let postIdDiv = $('<div></div>');
@@ -79,20 +82,21 @@ firebase.auth().onAuthStateChanged(function (user) {
           // html elements structure
           $('#main').append(postDiv);
           postDiv.append(titlePara, deleteButton, postLink, details);
-          postLink.append(postImage);
+          postLink.append(postImageDiv);
+          postImageDiv.append(postImage);
           posterLink.append(posterPara);
           postIdDiv.append(posterLink, datePara);
           details.append(postIdDiv, contentsPara);
 
-          $('.deleteButton').click(e => {
-            e.preventDefault();
+          // $('.deleteButton').click(e => {
+          //   e.preventDefault();
 
-            db.collection("posts").doc(post.postId).delete().then(() => {
-              console.log("Document successfully deleted!");
-            }).catch(function (error) {
-              console.error("Error removing document: ", error);
-            });
-          })
+          //   db.collection("posts").doc(post.postId).delete().then(() => {
+          //     console.log("Document successfully deleted!");
+          //   }).catch(function (error) {
+          //     console.error("Error removing document: ", error);
+          //   });
+          // })
         })
       }).catch();
 
