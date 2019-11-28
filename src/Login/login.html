@@ -74,12 +74,12 @@
                     emailVerified = user.emailVerified;
                     uid = user.uid;
                 }
-                db.collection('users').doc(user.uid).set({
-                    name: name,
-                    email: email,
-                    registerdDate: firebase.firestore.Timestamp.fromDate(new Date()),
-                    numberOfPost: 0
-                })
+
+            //     db.collection('users').doc(user.uid).set({
+            //     name: name,
+            //     email : email,
+            //     registerdDate: 
+            // })
             }
 
         })

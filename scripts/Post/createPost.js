@@ -77,7 +77,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('postingForm').reset();
     }
 
-
     $("#cancelButton").click(() => {
       window.history.back();
     })
