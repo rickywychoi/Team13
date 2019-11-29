@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       //upload image
 
       var file = document.getElementById('image').files[0];
+      console.log(file);
       // var storageRef = firebase.storage().ref('product/' + image.name);
       // storageRef.put(image);
       var storageRef = firebase.storage().ref();
@@ -52,30 +53,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         });
       })
 
-
-      // var uploadTask = storageRef.put(image);
-      // uploadTask.on('state_changed', function(snapshot){
-
-      // })
-      // var donwloadURL = uploadTask.snapshot.donwloadURL;
-      // storageRef.put(image).getDownloadURL().then(function(url){
-      //   console.log(url);
-      // })
-
-      // db.collection('posts').add({
-      //   postTitle: postTitle,
-      //   contents: postDescription,
-      //   conditionStatus: postCondition,
-      //   createdDate: postedDate,
-      //   image: "empty image",
-      //   postedBy: postedBy,
-      //   // url: downloadURL,
-      // })
-
       db.collection('users').doc(user.uid).get().then(snap => {
-        // console.log(snap.data());
         var post = {
-          // numOfPost: snap.data().numberOfPost
         }
         db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
           postTitle: postTitle,
@@ -90,10 +69,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           numberOfPost: post.numOfPost + 1
         })
       })
-// .then(function(){
-//         window.location.href = "../MainHome/mainHome.html";
-//       })
-
       document.getElementById('postingForm').reset();
     }
 
