@@ -22,6 +22,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     console.log(name);
     document.getElementById("userName").innerHTML = "Hello, " + name;
     document.getElementById("sidebarLogIn").style.display = "none";
+    
+    $("#sidebarLogOut").click((e) => {
+      e.preventDefault();
+
+      firebase.auth().signOut().then(function() {
+        window.location.href = "../../index.html";
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+    });
 
     // for passing post id into url query
     function parseURLParams(url) {
@@ -58,10 +69,12 @@ firebase.auth().onAuthStateChanged(function (user) {
         image: snap.data().image,
         postTitle: snap.data().postTitle,
         postedBy: snap.data().postedBy,
+        url: snap.data().url,
       }
       document.getElementById('postTitle').innerHTML = post.postTitle;
       document.getElementById('user').innerHTML = post.postedBy;
       document.getElementById('postTime').innerHTML = "Posted on: " + post.createdDate;
+      document.getElementById('postImage').setAttribute("src", post.url);
       document.getElementById('postContent').innerHTML = post.contents;
       document.getElementById('condition').innerHTML = post.conditionStatus;
     })

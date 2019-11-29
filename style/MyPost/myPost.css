@@ -1,0 +1,147 @@
+/****************************************************
+ * Following part is shared part as header and background
+ ****************************************************/
+ body {
+  margin: 0;
+  background-color: rgb(189, 204, 255);
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 80px;
+  z-index: 20001;
+}
+
+#iconsWrapper {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.icons {
+  width: 40px;
+  height: auto;
+  margin: 20px 10px;
+}
+
+#menuIcon {
+  float: left;
+}
+
+#searchIcon {
+  float: right;
+}
+
+#messageIcon {
+  float: right;
+}
+
+#logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0E2577;
+  display: inline-block;
+  left: 50%;
+  transform: translate(150%);
+  margin: 20px
+}
+
+#main {
+  background-color: rgb(189, 204, 255);
+  height: 100%;
+  margin-top: 100px;
+}
+/****************************************************
+ * Above part is shared part as header and background
+ ****************************************************/
+
+.toPost {
+  text-decoration: none;
+  color: #000000;
+}
+
+.toPostedBy {
+  text-decoration: none;
+  color: #000000;
+}
+
+.deleteButton {
+  background-color: white;
+  border: 1px solid #f44336;
+  border-radius: 10px;
+  color: #f44336;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
+  font-size: 16px;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #f44336;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
+.post {
+  width: 330px;
+  height: auto;
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 14px 0;
+  /* border-radius: 7px; */
+}
+
+.postTitle {
+  margin: 0px 14px;
+  font-size: 18px;
+}
+
+.postImage {
+  width: 300px;
+  /* height: 170px; */
+  /* border: 1px solid black; */
+  margin: 7px auto;
+}
+
+.postImage img {
+  width: 300px;
+  height: auto;
+}
+
+.postDetail {
+  margin: 0px 14px;
+}
+
+.postId {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.postedBy {
+  font-weight: 700;
+  /* width: 50px; */
+  display: inline;
+}
+
+.postedDate {
+  margin-left: auto;
+}
+
+/** (mobile) For 480px or less **/
+@media screen and (max-width: 480px) {
+
+}
