@@ -84,18 +84,19 @@ body {
 
 .postImage {
   width: 300px;
-  /* height: 170px; */
+  height: auto;
   /* border: 1px solid black; */
   margin: 7px auto;
 }
 
 .postImage img {
   width: 300px;
-  height: 170px;
+  height: auto;
 }
 
 .postDetail {
   margin: 0px 14px;
+  
 }
 
 .postId {
@@ -105,11 +106,16 @@ body {
 
 .postedBy {
   font-weight: 700;
-  width: 50px;
+  /* width: 50px; */
+  display: inline;
 }
 
 .postedDate {
   margin-left: auto;
+}
+
+.contents {
+  display: inline;
 }
 
 /** (mobile) For 480px or less **/
