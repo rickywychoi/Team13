@@ -23,6 +23,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     console.log(name);
     document.getElementById("userName").innerHTML = "Hello, " + name;
     document.getElementById("sidebarLogIn").style.display = "none";
+    $("#sidebarLogOut").click(() => {
+      firebase.auth().signOut().then(function() {
+        window.location.href = "../../index.html";
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+    })
 
     // retrieving data from each post
     let postsRef = db.collection('posts');
@@ -32,13 +40,14 @@ firebase.auth().onAuthStateChanged(function (user) {
         snap.forEach(doc => {
           console.log(doc.data());
 
+          let contents = doc.data().contents;
           let postedBy = doc.data().postedBy;
 
           // fields of each post documents
           let post = {
             postId: doc.id,
             conditionStatus: doc.data().conditionStatus,
-            contents: doc.data().contents,
+            contents: contents.length > 50 ? contents.substring(0, 51).concat("...") : contents,
             // createdDate: null || undefined ? '' : doc.data().createdDate.toDate(),
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
             image: doc.data().image,
@@ -90,5 +99,6 @@ firebase.auth().onAuthStateChanged(function (user) {
   } else {
     // No user is signed in.
     document.getElementById("sidebarLogOut").style.display = "none";
+    document.getElementById("sidebarLogIn").style.display = "block";
   }
 });
