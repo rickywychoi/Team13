@@ -1,3 +1,10 @@
+function conditionDisplayNone(){
+    document.getElementById("con").style.display = "none";
+}
+function conditionDisplay(){
+  document.getElementById("con").style.display = "block";
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.

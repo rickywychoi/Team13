@@ -61,6 +61,7 @@ body {
   padding: 14px;
   margin: 0 auto;
   background-color: white;
+  border-radius: 5px;
   /* border: 1px solid black; */
 }
 
@@ -80,7 +81,6 @@ body {
 }
 
 #postTime {
-  /* margin-left: auto; */
   float: right;
   margin-bottom: 10px;
 }
@@ -94,12 +94,14 @@ body {
 }
 
 #postDetail {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  clear: right;
 }
 
 #postContent {
+  /* margin-top: 15px; */
   word-wrap: break-word;
 }
 

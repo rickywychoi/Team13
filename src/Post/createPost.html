@@ -5,8 +5,11 @@
   <title>Posting page</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../../style/Sidebar/sidebarStyle.css">
   <link rel="stylesheet" type="text/css" href="../../style/Post/postFormStyle.css">
+
 
   <!-- firbase stuff -->
   <script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"> </script>
@@ -38,7 +41,6 @@
 <body>
   <header id="header">
     <a href="#" id="cancelButton">Cancel</a>
-    <a href="#"></a>
   </header>
 
   <div class="alert">Your post has been uploaded</div>
@@ -46,6 +48,22 @@
   <div class="postForm">
     <form id="postingForm">
       <input type="text" name="title" placeholder="Enter the title" class="title" id="title">
+
+      <div class="check" id="left">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="FS" id='fs' checked onclick="if(this.checked){conditionDisplay()}">
+          <label class="form-check-label" for="exampleRadios1">
+            For Sale
+          </label>
+        </div>
+        <div class="form-check" id="right">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="LF" id='lf'onclick="if(this.checked){conditionDisplayNone()}">
+          <label class="form-check-label" for="exampleRadios2">
+            Look For
+          </label>
+        </div>
+      </div>
+
       <p id="imageText">Upload an image of your item:</p>
       <input type="file" name="image" class="image" id="image" value="upload">
       <textarea name="describe" class="description" row="15" placeholder="Describe about your product"
@@ -53,9 +71,10 @@
       <div class="conditionBar" id="con">
         <input id="condition" type="range" class="range" value="0" min='0.0' max='100.0' name=""
           mousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)">
-        <p id="rangeValue">0</p> <span id="conText">Slide above bar to indicate condition of your item! (Out of 10)</span>
+        <p id="rangeValue">0</p> <span id="conText">Slide above bar to indicate condition of your item! (Out of
+          10)</span>
       </div>
-      <button type="submit" id="submit">Submit</button>
+      <button type="submit" id="submit">Submit </button>
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

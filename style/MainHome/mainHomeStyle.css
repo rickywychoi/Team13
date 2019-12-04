@@ -71,6 +71,7 @@ body {
   background-color: #ffffff;
   margin: 20px auto;
   padding: 14px 0;
+  border-radius: 5px;
   /* border-radius: 7px; */
 }
 
@@ -93,7 +94,7 @@ body {
 
 .postDetail {
   margin: 0px 14px;
-  
+  word-wrap: break-word;
 }
 
 .postId {
