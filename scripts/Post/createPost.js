@@ -1,9 +1,24 @@
-function conditionDisplayNone(){
-    document.getElementById("con").style.display = "none";
+function conditionDisplayNone() {
+  document.getElementById("con").style.display = "none";
+  // var a = document.getElementById("lf").checked;
+  // console.log(a);
 }
-function conditionDisplay(){
+
+function conditionDisplay() {
   document.getElementById("con").style.display = "block";
+  // var a = document.getElementById("lf").value;
+  // console.log(a);
 }
+
+// function con(condition){
+//   condition = document.getElementById('condition').value / 10;
+// }
+
+// function conNone(condition){
+//   condition = - 1
+// }
+
+
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
@@ -31,8 +46,15 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postedBy = user.displayName;
       var file = document.getElementById('image').files[0];
 
-      //upload image
-      console.log(file);
+
+      if ($('#lf').is(":checked")) {
+        postCondition = - 1;
+      }
+
+      if($('#fs').is(":checked")){
+        postCondition = document.getElementById('condition').value / 10;
+      }
+
       if (file != undefined) {
         var storageRef = firebase.storage().ref();
         // console.log(storageRef.child('images/' + file.name));
@@ -46,23 +68,27 @@ firebase.auth().onAuthStateChanged(function (user) {
             createdDate: postedDate,
             postedBy: postedBy,
             url: downloadURL,
-          }).then(function () {
+          })
+          .then(function () {
             console.log("The post is created!");
             window.location.href = "../MainHome/mainHome.html";
           });
         });
       } else {
-          db.collection('posts').add({
-            postTitle: postTitle,
-            contents: postDescription,
-            conditionStatus: postCondition,
-            createdDate: postedDate,
-            postedBy: postedBy,
-          }).then(function () {
-            console.log("The post is created without an image!");
-            window.location.href = "../MainHome/mainHome.html";
-          });
+        db.collection('posts').add({
+          postTitle: postTitle,
+          contents: postDescription,
+          conditionStatus: postCondition,
+          createdDate: postedDate,
+          postedBy: postedBy,
+        })
+        .then(function () {
+          console.log("The post is created without an image!");
+          window.location.href = "../MainHome/mainHome.html";
+        });
       }
+
+
     }
 
     $("#cancelButton").click((e) => {
