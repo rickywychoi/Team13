@@ -72,24 +72,24 @@ firebase.auth().onAuthStateChanged(function (user) {
       //   // url: downloadURL,
       // })
 
-      db.collection('users').doc(user.uid).get().then(snap => {
-        // console.log(snap.data());
-        var post = {
-          // numOfPost: snap.data().numberOfPost
-        }
-        db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
-          postTitle: postTitle,
-          contents: postDescription,
-          conditionStatus: postCondition,
-          createdDate: postedDate,
-          image: "empty image",
-          postedBy: postedBy,
-        })
+      // db.collection('users').doc(user.uid).get().then(snap => {
+      //   // console.log(snap.data());
+      //   var post = {
+      //     // numOfPost: snap.data().numberOfPost
+      //   }
+      //   db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
+      //     postTitle: postTitle,
+      //     contents: postDescription,
+      //     conditionStatus: postCondition,
+      //     createdDate: postedDate,
+      //     image: "empty image",
+      //     postedBy: postedBy,
+      //   })
 
-        db.collection('users').doc(user.uid).update({
-          numberOfPost: post.numOfPost + 1
-        })
-      })
+      //   db.collection('users').doc(user.uid).update({
+      //     numberOfPost: post.numOfPost + 1
+      //   })
+      // })
 // .then(function(){
 //         window.location.href = "../MainHome/mainHome.html";
 //       })
