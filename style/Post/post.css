@@ -30,23 +30,20 @@ body {
   float: left;
 }
 
-#searchIcon {
-  float: right;
-}
-
-#messageIcon {
-  float: right;
+#logoWrap {
+  color: #ffa600;
 }
 
 #logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #0E2577;
   display: inline-block;
   left: 50%;
-  transform: translate(150%);
-  margin: 20px
+  right: 50%;
+  margin: 23px;
+  font-size: 30px;
+}
+
+#logoText {
+  font-family: 'Bebas Neue', cursive;
 }
 
 #main {
@@ -64,6 +61,7 @@ body {
   padding: 14px;
   margin: 0 auto;
   background-color: white;
+  border-radius: 5px;
   /* border: 1px solid black; */
 }
 
@@ -83,7 +81,6 @@ body {
 }
 
 #postTime {
-  /* margin-left: auto; */
   float: right;
   margin-bottom: 10px;
 }
@@ -97,12 +94,14 @@ body {
 }
 
 #postDetail {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  clear: right;
 }
 
 #postContent {
+  /* margin-top: 15px; */
   word-wrap: break-word;
 }
 
@@ -129,4 +128,56 @@ body {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modalPosterName {
+  margin-bottom: 10px;
+}
+
+#modalPosterEmail {
+  font-weight: 700;
+  color: black;
+}
+
+#modalDescription {
+  margin-top: 35px;
 }

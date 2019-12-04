@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../style/Sidebar/sidebarStyle.css">
   <link rel="stylesheet" type="text/css" href="../../style/MyPost/myPost.css">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script type="text/javascript" src="../../scripts/Sidebar/sidebar_script.js"></script>
 
   <!-- Include Firebase related things -->
@@ -42,7 +43,7 @@
             <p id="userName">Please Log In</p>
           </div>
           <ul>
-            <li><a href="#">Explore Posts</a></li>
+            <li><a href="/src/MainHome/mainHome.html">Explore Posts</a></li>
             <li><a href="../Post/createPost.html">Create a Post</a></li>
             <li><a href="../Post/myPost.html">My Posts</a></li>
             <li><a href="#" id="sidebarLogIn">Log In</a></li>
@@ -50,11 +51,11 @@
             <li><a href="../UserProfile/userProfile.html">Account Settings</a></li>
           </ul>
         </div>
-        <a href="/src/MainHome/mainHome.html">
-          <div id="logo"></div>
+        <a href="/src/MainHome/mainHome.html" id="logoWrap">
+          <div id="logo">
+            <p id="logoText">Buy & Sell</p>
+          </div>
         </a>
-        <a href="#"><img src="../../assets/icons/envelope.png" alt="message icon" class="icons" id="messageIcon" /></a>
-        <a href="#"><img src="../../assets/icons/search.png" alt="search icon" class="icons" id="searchIcon" /></a>
       </div>
     </div>
     <div id="main">

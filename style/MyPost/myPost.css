@@ -30,23 +30,20 @@
   float: left;
 }
 
-#searchIcon {
-  float: right;
-}
-
-#messageIcon {
-  float: right;
+#logoWrap {
+  color: #ffa600;
 }
 
 #logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #0E2577;
   display: inline-block;
   left: 50%;
-  transform: translate(150%);
-  margin: 20px
+  right: 50%;
+  margin: 23px;
+  font-size: 30px;
+}
+
+#logoText {
+  font-family: 'Bebas Neue', cursive;
 }
 
 #main {
@@ -102,6 +99,7 @@
   background-color: #ffffff;
   margin: 20px auto;
   padding: 14px 0;
+  border-radius: 5px;
   /* border-radius: 7px; */
 }
 
@@ -124,6 +122,7 @@
 
 .postDetail {
   margin: 0px 14px;
+  word-wrap: break-word;
 }
 
 .postId {
