@@ -62,13 +62,13 @@ firebase.auth().onAuthStateChanged(function (user) {
           console.log(doc.data().createdDate.toDate().toString().substring(0, 10));
 
           // creating html elements with each post's data
+          let postLink = $('<a></a>');
+          postLink.addClass('toPost');
+          postLink.attr('href', '../Post/post.html?postId=' + post.postId);
           let postDiv = $('<div></div>');
           postDiv.addClass('post');
           let titlePara = $('<p>' + post.postTitle + '</p>');
           titlePara.addClass('postTitle');
-          let postLink = $('<a></a>');
-          postLink.addClass('toPost');
-          postLink.attr('href', '../Post/post.html?postId=' + post.postId);
           let postImageDiv = $('<div></div>');
           postImageDiv.addClass('postImage');
           let postImage = $('<img/>');
@@ -77,9 +77,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           details.addClass('postDetail');
           let postIdDiv = $('<div></div>');
           postIdDiv.addClass('postId');
-          let posterLink = $('<a></a>');
-          posterLink.addClass('toPostedBy');
-          posterLink.attr('href', '#');
           let posterPara = $('<p>' + post.postedBy + '</p>');
           posterPara.addClass('postedBy');
           let datePara = $('<p>' + post.createdDate + '</p>');
@@ -88,14 +85,12 @@ firebase.auth().onAuthStateChanged(function (user) {
           contentsPara.addClass('contents');
 
           // html elements structure
-          $('#main').append(postDiv);
-          postDiv.append(titlePara, postLink, details);
-          postLink.append(postImageDiv);
+          $('#main').append(postLink);
+          postLink.append(postDiv);
+          postDiv.append(titlePara, postImageDiv, details);
           postImageDiv.append(postImage);
-          posterLink.append(posterPara);
-          postIdDiv.append(posterLink, datePara);
+          postIdDiv.append(posterPara, datePara);
           details.append(postIdDiv, contentsPara);
-
         })
       }).catch();
 
