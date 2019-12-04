@@ -46,13 +46,14 @@
   <div class="postForm">
     <form id="postingForm">
       <input type="text" name="title" placeholder="Enter the title" class="title" id="title">
+      <p id="imageText">Upload an image of your item:</p>
       <input type="file" name="image" class="image" id="image" value="upload">
       <textarea name="describe" class="description" row="15" placeholder="Describe about your product"
         id="description"></textarea>
       <div class="conditionBar" id="con">
         <input id="condition" type="range" class="range" value="0" min='0.0' max='100.0' name=""
           mousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)">
-        <p id="rangeValue">0</p> <span id="conText">Condition of your products</span>
+        <p id="rangeValue">0</p> <span id="conText">Slide above bar to indicate condition of your item! (Out of 10)</span>
       </div>
       <button type="submit" id="submit">Submit</button>
     </form>

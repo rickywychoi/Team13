@@ -1,5 +1,3 @@
-
-
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -13,11 +11,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       // you have one. Use User.getToken() instead.
     }
 
-    // // for sidebar
-    // console.log(name);
-    // document.getElementById("userName").innerHTML = "Hello, " + name;
-    // document.getElementById("sidebarLogIn").style.display = "none";
-
     document.getElementById('postingForm').addEventListener('submit', submitForm)
 
     function submitForm(e) {
@@ -29,47 +22,40 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postCondition = document.getElementById('condition').value / 10;
       var postedDate = firebase.firestore.Timestamp.fromDate(new Date())
       var postedBy = user.displayName;
+      var file = document.getElementById('image').files[0];
 
       //upload image
-
-      var file = document.getElementById('image').files[0];
       console.log(file);
-      // var storageRef = firebase.storage().ref('product/' + image.name);
-      // storageRef.put(image);
-      var storageRef = firebase.storage().ref();
-      var uploadTask = storageRef.child('images/' + file.name).put(file);
-      uploadTask.on('state_changed', null, null, function(){
-        var downloadURL = uploadTask.snapshot.downloadURL;
-        db.collection('posts').add({
-          postTitle: postTitle,
-          contents: postDescription,
-          conditionStatus: postCondition,
-          createdDate: postedDate,
-          image: "empty image",
-          postedBy: postedBy,
-          url: downloadURL,
-        }).then(function(){
-          window.location.href = "../MainHome/mainHome.html";
+      if (file != undefined) {
+        var storageRef = firebase.storage().ref();
+        // console.log(storageRef.child('images/' + file.name));
+        var uploadTask = storageRef.child('images/' + file.name).put(file);
+        uploadTask.on('state_changed', null, null, function () {
+          var downloadURL = uploadTask.snapshot.downloadURL;
+          db.collection('posts').add({
+            postTitle: postTitle,
+            contents: postDescription,
+            conditionStatus: postCondition,
+            createdDate: postedDate,
+            postedBy: postedBy,
+            url: downloadURL,
+          }).then(function () {
+            console.log("The post is created!");
+            window.location.href = "../MainHome/mainHome.html";
+          });
         });
-      })
-
-      db.collection('users').doc(user.uid).get().then(snap => {
-        var post = {
-        }
-        db.collection('users').doc(user.uid).collection('posts').doc((post.numOfPost + 1).toString()).set({
-          postTitle: postTitle,
-          contents: postDescription,
-          conditionStatus: postCondition,
-          createdDate: postedDate,
-          image: "empty image",
-          postedBy: postedBy,
-        })
-
-        db.collection('users').doc(user.uid).update({
-          numberOfPost: post.numOfPost + 1
-        })
-      })
-      document.getElementById('postingForm').reset();
+      } else {
+          db.collection('posts').add({
+            postTitle: postTitle,
+            contents: postDescription,
+            conditionStatus: postCondition,
+            createdDate: postedDate,
+            postedBy: postedBy,
+          }).then(function () {
+            console.log("The post is created without an image!");
+            window.location.href = "../MainHome/mainHome.html";
+          });
+      }
     }
 
     $("#cancelButton").click((e) => {
