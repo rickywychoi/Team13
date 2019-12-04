@@ -23,6 +23,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     console.log(name);
     document.getElementById("userName").innerHTML = "Hello, " + name;
     document.getElementById("sidebarLogIn").style.display = "none";
+    
+    $("#sidebarLogOut").click((e) => {
+      e.preventDefault();
+
+      firebase.auth().signOut().then(function() {
+        window.location.href = "../../index.html";
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+    });
 
     console.log("uid " + uid);
 
@@ -34,13 +45,14 @@ firebase.auth().onAuthStateChanged(function (user) {
         snap.forEach(doc => {
           console.log(doc.data());
 
+          let contents = doc.data().contents;
           let postedBy = doc.data().postedBy;
 
-          // fields of each post documents
+          // properties of each post documents
           let post = {
             postId: doc.id,
             conditionStatus: doc.data().conditionStatus,
-            contents: doc.data().contents,
+            contents: contents.length > 50 ? contents.substring(0, 51).concat("...") : contents,
             // createdDate: null || undefined ? '' : doc.data().createdDate.toDate(),
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
             image: doc.data().image,
@@ -57,6 +69,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           let titlePara = $('<p>' + post.postTitle + '</p>');
           titlePara.addClass('postTitle');
           let deleteButton = $('<button>Delete</button>');
+          deleteButton.attr('id', `delete${post.postId}`);
           deleteButton.addClass('deleteButton');
           let postLink = $('<a></a>');
           postLink.addClass('toPost');
@@ -88,20 +101,26 @@ firebase.auth().onAuthStateChanged(function (user) {
           postIdDiv.append(posterLink, datePara);
           details.append(postIdDiv, contentsPara);
 
-          // $('.deleteButton').click(e => {
-          //   e.preventDefault();
+          $(`#delete${post.postId}`).click(e => {
+            e.preventDefault();
 
-          //   db.collection("posts").doc(post.postId).delete().then(() => {
-          //     console.log("Document successfully deleted!");
-          //   }).catch(function (error) {
-          //     console.error("Error removing document: ", error);
-          //   });
-          // })
-        })
+            alert("Are you sure to delete this post?");
+    
+            db.collection("posts").doc(post.postId).delete()
+            .then(() => {
+              console.log(`Document ${post.postId} successfully deleted!`);
+              location.reload();
+            }).catch(function (error) {
+              console.error("Error removing document: ", error);
+            });
+          });
+        });
       }).catch();
+
 
   } else {
     // No user is signed in.
     document.getElementById("sidebarLogOut").style.display = "none";
+    document.getElementById("sidebarLogIn").style.display = "block";
   }
 });

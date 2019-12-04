@@ -1,7 +1,7 @@
 /****************************************************
  * Following part is shared part as header and background
  ****************************************************/
-body {
+ body {
   margin: 0;
   background-color: rgb(189, 204, 255);
 }
@@ -43,10 +43,9 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: #0E2577;
-  /* display: inline-block; */
-  position: absolute;
+  display: inline-block;
   left: 50%;
-  transform: translate(-100%);
+  transform: translate(150%);
   margin: 20px
 }
 
@@ -69,13 +68,40 @@ body {
   color: #000000;
 }
 
+.deleteButton {
+  background-color: white;
+  border: 1px solid #f44336;
+  border-radius: 10px;
+  color: #f44336;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
+  font-size: 16px;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #f44336;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
 .post {
   width: 330px;
   height: auto;
   background-color: #ffffff;
   margin: 20px auto;
   padding: 14px 0;
-  border-radius: 5px;
   /* border-radius: 7px; */
 }
 
@@ -86,7 +112,7 @@ body {
 
 .postImage {
   width: 300px;
-  height: auto;
+  /* height: 170px; */
   /* border: 1px solid black; */
   margin: 7px auto;
 }
@@ -98,7 +124,6 @@ body {
 
 .postDetail {
   margin: 0px 14px;
-  
 }
 
 .postId {
@@ -114,10 +139,6 @@ body {
 
 .postedDate {
   margin-left: auto;
-}
-
-.contents {
-  display: inline;
 }
 
 /** (mobile) For 480px or less **/
