@@ -67,6 +67,8 @@ body {
 
 #postTitle {
   margin-left: 10px;
+  word-wrap: break-word;
+  font-size: 25px;
 }
 
 .postId {
