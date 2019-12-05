@@ -72,12 +72,15 @@ body {
   margin: 20px auto;
   padding: 14px 0;
   border-radius: 5px;
+  border: 0.5px solid lightgrey;
   /* border-radius: 7px; */
 }
 
 .postTitle {
   margin: 0px 14px;
   font-size: 18px;
+  font-weight: 700;
+  font-family: 'Muli', sans-serif;
 }
 
 .postImage {
@@ -106,14 +109,17 @@ body {
   font-weight: 700;
   /* width: 50px; */
   display: inline;
+  font-family: 'Muli', sans-serif;
 }
 
 .postedDate {
   margin-left: auto;
+  font-family: 'Muli', sans-serif;
 }
 
 .contents {
   display: inline;
+  font-family: 'Muli', sans-serif;
 }
 
 /** (mobile) For 480px or less **/

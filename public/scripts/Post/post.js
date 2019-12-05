@@ -1,5 +1,4 @@
 console.log("[post]");
-
 var user = firebase.auth().currentUser;
 var name, email, photoUrl, uid, emailVerified;
 // for firebase database
@@ -62,7 +61,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     db.collection('posts').doc(postId).get().then(snap => {
       console.log(snap.id);
       console.log(snap.data());
-      let post = {
+      var post = {
         conditionStatus: snap.data().conditionStatus,
         contents: snap.data().contents,
         createdDate: snap.data().createdDate.toDate().toString().substring(0, 10),
@@ -70,6 +69,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         postTitle: snap.data().postTitle,
         postedBy: snap.data().postedBy,
         url: snap.data().url,
+      }
+      if (post.conditionStatus < 0){
+        document.getElementById('cond').style.display = "none";
       }
       document.getElementById('postTitle').innerHTML = post.postTitle;
       document.getElementById('user').innerHTML = post.postedBy;
@@ -124,9 +126,12 @@ firebase.auth().onAuthStateChanged(function (user) {
         sendMail();
       })
     })
-
+    
   } else {
     // No user is signed in.
     document.getElementById("sidebarLogOut").style.display = "none";
   }
+
+
 });
+

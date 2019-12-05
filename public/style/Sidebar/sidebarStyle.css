@@ -26,6 +26,7 @@
     font-size: 20px;
     height: 150px;
     line-height: 150px;
+    font-family: 'Muli', sans-serif;
   }
 
   #sidebar ul li{
@@ -37,6 +38,7 @@
 
   #sidebar ul li a{
     color: #FFFFFF;
+    font-family: 'Muli', sans-serif;
   }
   #sidebar .toggle-btn{
    position: absolute;
