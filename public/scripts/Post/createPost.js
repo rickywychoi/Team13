@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         postCondition = - 1;
       }
 
-      if($('#fs').is(":checked")){
+      if ($('#fs').is(":checked")){
         postCondition = document.getElementById('condition').value / 10;
       }
 
