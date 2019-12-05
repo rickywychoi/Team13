@@ -43,7 +43,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       .then(snap => {
         console.log("MainHome.js")
         snap.forEach(doc => {
-          console.log(doc.data());
 
           let contents = doc.data().contents;
           let postedBy = doc.data().postedBy;
@@ -53,15 +52,12 @@ firebase.auth().onAuthStateChanged(function (user) {
             postId: doc.id,
             conditionStatus: doc.data().conditionStatus,
             contents: contents.length > 50 ? contents.substring(0, 51).concat("...") : contents,
-            // createdDate: null || undefined ? '' : doc.data().createdDate.toDate(),
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
             image: doc.data().image,
             postTitle: doc.data().postTitle,
             postedBy: postedBy.length > 15 ? postedBy.substring(0, 16).concat("...") : postedBy,
             url: doc.data().url,
           }
-
-          console.log(doc.data().createdDate.toDate().toString().substring(0, 10));
 
           // creating html elements with each post's data
           let postDiv = $('<div></div>');

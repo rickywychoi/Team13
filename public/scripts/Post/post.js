@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
     });
 
-    // for passing post id into url query
+    // for passing postId into url query
     function parseURLParams(url) {
       var queryStart = url.indexOf("?") + 1,
         queryEnd = url.indexOf("#") + 1 || url.length + 1,

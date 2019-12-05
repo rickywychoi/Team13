@@ -51,7 +51,6 @@ firebase.auth().onAuthStateChanged(function (user) {
             postId: doc.id,
             conditionStatus: doc.data().conditionStatus,
             contents: contents.length > 50 ? contents.substring(0, 51).concat("...") : contents,
-            // createdDate: null || undefined ? '' : doc.data().createdDate.toDate(),
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
             image: doc.data().image,
             postTitle: doc.data().postTitle,

@@ -1,24 +1,10 @@
 function conditionDisplayNone() {
   document.getElementById("con").style.display = "none";
-  // var a = document.getElementById("lf").checked;
-  // console.log(a);
 }
 
 function conditionDisplay() {
   document.getElementById("con").style.display = "block";
-  // var a = document.getElementById("lf").value;
-  // console.log(a);
 }
-
-// function con(condition){
-//   condition = document.getElementById('condition').value / 10;
-// }
-
-// function conNone(condition){
-//   condition = - 1
-// }
-
-
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
@@ -57,7 +43,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       if (file != undefined) {
         var storageRef = firebase.storage().ref();
-        // console.log(storageRef.child('images/' + file.name));
         var uploadTask = storageRef.child('images/' + file.name).put(file);
         uploadTask.on('state_changed', null, null, function () {
           var downloadURL = uploadTask.snapshot.downloadURL;
@@ -87,8 +72,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           window.location.href = "../MainHome/mainHome.html";
         });
       }
-
-
     }
 
     $("#cancelButton").click((e) => {
@@ -101,48 +84,3 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("sidebarLogOut").style.display = "none";
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-// var postRef = firebase.database().ref('Post');
-
-
-
-// document.getElementById('postingForm').addEventListener('submit', submitForm);
-
-// //submit form
-// function submitForm(e){
-//     e.preventDefault();
-
-//     //Get values
-//     var title = document.getElementById('title').value;
-//     var description = document.getElementById('description').value;
-
-//     //save post
-//     savePost(title, description);
-
-
-
-//     console.log(title);
-//     console.log(description);
-
-//     document.getElementById('postingForm').reset();
-
-// }
-
-// // Save post to firebase
-// function savePost(title, description){
-//     var newPostRef = postRef.push();
-//     newPostRef.set({
-//         title: title,
-//         description: description
-//     });
-// }
