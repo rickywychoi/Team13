@@ -1,8 +1,11 @@
-# Team 13
+# BCIT Buy & Sell
 
-Team 13 makes buy & sell app.
+This app is for BCIT students who wants to upload / explore posts for buying or selling items.
 
 ## Contributing
 
 Ricky Choi
 Jason Jin
+
+## Hosted Link
+https://bcit-buy-n-sell.firebaseapp.com/
