@@ -9,9 +9,12 @@ function conditionDisplay() {
   document.getElementById("con").style.display = "block";
 }
 
+<<<<<<< HEAD:scripts/Post/createPost.js
 
 
 
+=======
+>>>>>>> 48098a7c26d284ffb24e91d573996e58012debe5:public/scripts/Post/createPost.js
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -44,14 +47,18 @@ firebase.auth().onAuthStateChanged(function (user) {
       if ($('#lf').is(":checked")) {
         postCondition = - 1;
       }
+<<<<<<< HEAD:scripts/Post/createPost.js
       // if user chooses 'for sale', send postCondition as usual
       if($('#fs').is(":checked")){
+=======
+
+      if ($('#fs').is(":checked")){
+>>>>>>> 48098a7c26d284ffb24e91d573996e58012debe5:public/scripts/Post/createPost.js
         postCondition = document.getElementById('condition').value / 10;
       }
 
       if (file != undefined) {
         var storageRef = firebase.storage().ref();
-        // console.log(storageRef.child('images/' + file.name));
         var uploadTask = storageRef.child('images/' + file.name).put(file);
         uploadTask.on('state_changed', null, null, function () {
           var downloadURL = uploadTask.snapshot.downloadURL;
@@ -79,8 +86,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           window.location.href = "../MainHome/mainHome.html";
         });
       }
-
-
     }
 
     $("#cancelButton").click((e) => {
@@ -92,5 +97,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     // No user is signed in.
     document.getElementById("sidebarLogOut").style.display = "none";
   }
+<<<<<<< HEAD:scripts/Post/createPost.js
 });
 
+=======
+});
+>>>>>>> 48098a7c26d284ffb24e91d573996e58012debe5:public/scripts/Post/createPost.js

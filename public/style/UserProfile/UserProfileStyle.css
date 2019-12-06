@@ -2,6 +2,7 @@
     width: 100%;
     height: 300px;
     background-color: rgb(189, 204, 255);
+    font-family: 'Muli', sans-serif;
 }
 
 .cancel a{
@@ -10,6 +11,7 @@
     font-size: 20px;
     margin: 5px;
     float:left;
+    font-family: 'Muli', sans-serif;
 }
 
 .done a{
@@ -18,10 +20,12 @@
     float: right;
     font-size: 20px;
     margin: 5px;
+    font-family: 'Muli', sans-serif;
 }
 .info-title{
     color: rgb(189, 204, 255);
     font-size: 15px;
+    font-family: 'Muli', sans-serif;
 }
 
 .fields ul{
@@ -37,6 +41,7 @@
 .info{
     border-bottom: 1px solid #dfdfdf;
     width: 100%;
+    font-family: 'Muli', sans-serif;
 }
 
 .profile{
@@ -47,6 +52,7 @@
     margin-left: auto;
     margin-right: auto;
     transform: translateY(50%);
+    font-family: 'Muli', sans-serif;
 }
 
 .userName, .userEmail{
@@ -54,6 +60,7 @@
     float: right;
     margin-right: 10px;
     cursor: pointer;
+    font-family: 'Muli', sans-serif;
 }
 
 .bg-modal{
@@ -75,6 +82,7 @@
     border-radius: 4px;
     text-align: center;
     position: relative;
+    font-family: 'Muli', sans-serif;
 }
 
 .update{
