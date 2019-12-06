@@ -1,22 +1,14 @@
+
+//if user chooses for "look for", stop displaying condition bar
 function conditionDisplayNone() {
   document.getElementById("con").style.display = "none";
-  // var a = document.getElementById("lf").checked;
-  // console.log(a);
 }
 
+//if user chooses for sale, display condition bar
 function conditionDisplay() {
   document.getElementById("con").style.display = "block";
-  // var a = document.getElementById("lf").value;
-  // console.log(a);
 }
 
-// function con(condition){
-//   condition = document.getElementById('condition').value / 10;
-// }
-
-// function conNone(condition){
-//   condition = - 1
-// }
 
 
 
@@ -28,17 +20,19 @@ firebase.auth().onAuthStateChanged(function (user) {
       email = user.email;
       photoUrl = user.photoURL;
       emailVerified = user.emailVerified;
-      uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+      uid = user.uid;
+       // The user's ID, unique to the Firebase project. Do NOT use
       // this value to authenticate with your backend server, if
       // you have one. Use User.getToken() instead.
     }
 
+    //when user click the submit button, terminate 'submitForm' function
     document.getElementById('postingForm').addEventListener('submit', submitForm)
 
     function submitForm(e) {
       e.preventDefault();
 
-      // entered contents
+      // Gets value from input tags
       var postTitle = document.getElementById('title').value;
       var postDescription = document.getElementById('description').value;
       var postCondition = document.getElementById('condition').value / 10;
@@ -46,11 +40,11 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postedBy = user.displayName;
       var file = document.getElementById('image').files[0];
 
-
+      // if user chooses 'look for', send postCondition as -1
       if ($('#lf').is(":checked")) {
         postCondition = - 1;
       }
-
+      // if user chooses 'for sale', send postCondition as usual
       if($('#fs').is(":checked")){
         postCondition = document.getElementById('condition').value / 10;
       }
@@ -70,7 +64,6 @@ firebase.auth().onAuthStateChanged(function (user) {
             url: downloadURL,
           })
           .then(function () {
-            console.log("The post is created!");
             window.location.href = "../MainHome/mainHome.html";
           });
         });
@@ -83,7 +76,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           postedBy: postedBy,
         })
         .then(function () {
-          console.log("The post is created without an image!");
           window.location.href = "../MainHome/mainHome.html";
         });
       }
@@ -102,47 +94,3 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-// var postRef = firebase.database().ref('Post');
-
-
-
-// document.getElementById('postingForm').addEventListener('submit', submitForm);
-
-// //submit form
-// function submitForm(e){
-//     e.preventDefault();
-
-//     //Get values
-//     var title = document.getElementById('title').value;
-//     var description = document.getElementById('description').value;
-
-//     //save post
-//     savePost(title, description);
-
-
-
-//     console.log(title);
-//     console.log(description);
-
-//     document.getElementById('postingForm').reset();
-
-// }
-
-// // Save post to firebase
-// function savePost(title, description){
-//     var newPostRef = postRef.push();
-//     newPostRef.set({
-//         title: title,
-//         description: description
-//     });
-// }
