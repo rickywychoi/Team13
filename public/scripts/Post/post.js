@@ -55,6 +55,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       return params;
     }
 
+    // postId from url query string
     let postId = parseURLParams(window.location.href).postId[0];
 
     // for contents
@@ -68,6 +69,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         image: snap.data().image,
         postTitle: snap.data().postTitle,
         postedBy: snap.data().postedBy,
+        email: snap.data().email,
         url: snap.data().url,
       }
       if (post.conditionStatus < 0){
@@ -88,7 +90,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('modalPosterName').innerHTML = post.postedBy;
 
       // email in modal
-      document.getElementById('modalPosterEmail').innerHTML = email;
+      document.getElementById('modalPosterEmail').innerHTML = post.email;
 
       // Get the modal
       var modal = document.getElementById("myModal");
@@ -121,6 +123,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.open(`mailto:${email}`);
       }
 
+      // click email link to contact
       $('#modalPosterEmail').click(e=> {
         e.preventDefault();
         sendMail();

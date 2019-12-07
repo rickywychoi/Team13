@@ -35,8 +35,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
     });
 
-    console.log("uid " + uid);
-
     // retrieving data from each post
     let postsRef = db.collection('posts');
     postsRef.where("postedBy", "==", name).orderBy('createdDate', 'desc').get() // get posts in descending order
@@ -97,11 +95,14 @@ firebase.auth().onAuthStateChanged(function (user) {
           postIdDiv.append(posterLink, datePara);
           details.append(postIdDiv, contentsPara);
 
+          // click delete button in my post
           $(`#delete${post.postId}`).click(e => {
             e.preventDefault();
 
+            // alert to prevent user deleting by mistake
             alert("Are you sure to delete this post?");
     
+            // delete my post
             db.collection("posts").doc(post.postId).delete()
             .then(() => {
               console.log(`Document ${post.postId} successfully deleted!`);

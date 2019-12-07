@@ -35,6 +35,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       var postCondition = document.getElementById('condition').value / 10;
       var postedDate = firebase.firestore.Timestamp.fromDate(new Date())
       var postedBy = user.displayName;
+      var email = user.email;
       var file = document.getElementById('image').files[0];
 
       // if user chooses 'look for', send postCondition as -1
@@ -59,9 +60,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             conditionStatus: postCondition,
             createdDate: postedDate,
             postedBy: postedBy,
+            email: email,
             url: downloadURL,
           })
-          .then(function () {
+          .then(function () {  // after all the inputs go into the database, page moves to main page
             window.location.href = "../MainHome/mainHome.html";
           });
         });
@@ -72,15 +74,16 @@ firebase.auth().onAuthStateChanged(function (user) {
           conditionStatus: postCondition,
           createdDate: postedDate,
           postedBy: postedBy,
+          email: email,
         })
-        .then(function () { //after all the inputs go into the database, page moves to main page
+        .then(function () {  // after all the inputs go into the database, page moves to main page
           window.location.href = "../MainHome/mainHome.html";
         });
       }
 
 
     }
-    //Go back button
+    // Go back button
     $("#cancelButton").click((e) => {
       e.preventDefault();
       window.history.back();
