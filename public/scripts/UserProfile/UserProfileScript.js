@@ -9,14 +9,13 @@ firebase.auth().onAuthStateChanged(function (user) {
       email = user.email;
       photoUrl = user.photoURL;
       emailVerified = user.emailVerified;
-      uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+      uid = user.uid; 
+      // The user's ID, unique to the Firebase project. Do NOT use
       // this value to authenticate with your backend server, if
       // you have one. Use User.getToken() instead.
     }
 
-    console.log(name);
-    // document.getElementById("userName").innerHTML = "Hello, " + name;
-    // document.getElementById("sidebarLogIn").style.display = "none";
+    //append name of user and email
     $(".userName").append(name + " >");
     $(".userEmail").append(email + " >");
 
@@ -26,44 +25,21 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
+//When user clicks '>' small box pop up where user can update his/her info
 document.getElementById('popup').addEventListener('click', updateInfoCard);
 function updateInfoCard(e){
     e.preventDefault();
     document.querySelector('.bg-modal').style.display = 'flex';
     console.log("working");
 }
-
-// document.querySelector('.close').addEventListener('click', function(){
-//     document.querySelector('.bg-modal').style.display = 'none';
-// });
-
-
-// function close(e){
-//     e.preventDefault();
-//     document.querySelector('.bg-modal').style.display = "none";
-//     console.log("working");
-// }
-
+//When user click any area except for the pop-up box, close the pop-up box
 function closing(){
     document.querySelector('.bg-modal').style.display = "none";
 }
-
+//upading user info
 function updating(){
     var newname = document.getElementById('newName').value;
     var newEmail = document.getElementById('newEmail').value;
-
-
-    // user.updateProfile({
-    //     displayName: newname
-    // });
-    // user.updateEmail('1458wlstjd@gmail.com').then(function(){
-    //     console.log("sucess");
-    // }).catch(function(error){
-    // }).then(function(){
-    //     console.log(user.displayName);
-    // }
-    // )
-
     console.log("asdf" + document.referrer);
     console.log(newname);
     console.log(newEmail);

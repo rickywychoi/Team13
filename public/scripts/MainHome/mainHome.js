@@ -52,7 +52,6 @@ firebase.auth().onAuthStateChanged(function (user) {
             conditionStatus: doc.data().conditionStatus,
             contents: contents.length > 50 ? contents.substring(0, 51).concat("...") : contents,
             createdDate: doc.data().createdDate.toDate().toString().substring(0, 10),
-            image: doc.data().image,
             postTitle: doc.data().postTitle,
             postedBy: postedBy.length > 15 ? postedBy.substring(0, 16).concat("...") : postedBy,
             url: doc.data().url,
